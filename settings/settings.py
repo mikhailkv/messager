@@ -25,7 +25,7 @@ SECRET_KEY = '%h*^gvcp8s*@g)h1lpjqa%3fs4k=)((op23tu-i4qp_afijgyu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
+    'webpack_loader',
     'components.messager'
 ]
 
@@ -53,10 +54,25 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'settings.urls'
 
+STATIC_URL = '/static/'
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+FRONTEND_DIR = os.path.join(BASE_DIR, 'frontend')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'build'),
+    os.path.join(FRONTEND_DIR, 'dist')
+]
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'dist/',
+        'STATS_FILE': os.path.join(FRONTEND_DIR, 'webpack-stats.json')
+    }
+}
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATES_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
