@@ -1,0 +1,22 @@
+.DS_Store
+/dist/
+__pycache__/
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.pyc
+*.pyo
+.editorconfig
+logs/*.log
+Vagrantfile
+.vagrant
+media
+*.ipynb
+*.swp
+CACHE
+logs
+
