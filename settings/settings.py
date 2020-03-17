@@ -55,15 +55,15 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'settings.urls'
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 FRONTEND_DIR = os.path.join(BASE_DIR, 'frontend')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
-    os.path.join(BASE_DIR, 'build'),
-    os.path.join(FRONTEND_DIR, 'dist')
 ]
 WEBPACK_LOADER = {
     'DEFAULT': {
+        'CACHE': DEBUG,
         'BUNDLE_DIR_NAME': 'dist/',
         'STATS_FILE': os.path.join(FRONTEND_DIR, 'webpack-stats.json')
     }
