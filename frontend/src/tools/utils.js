@@ -1,0 +1,1 @@
+export const csrf = document.getElementsByName('csrfmiddlewaretoken')[0].value;
