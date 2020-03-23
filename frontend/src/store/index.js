@@ -11,7 +11,7 @@ export default new Vuex.Store({
         jwt: localStorage.getItem('token'),
         endpoints: {
           // TODO: Remove hardcoding of dev endpoints
-          obtainJWT: 'api/v1/auth/obtain_token/',
+          obtainJWT: 'auth/token/login/',
           refreshJWT: 'api/v1/auth/refresh_token/',
           baseUrl: 'api/v1/'
         }
